@@ -2,6 +2,8 @@
   --color-black: #0d0b4d;
   --color-blue: #1a518d;
   --color-marker: #000057;
+  --color-white: #e6dddd;
+  --color-gray: #a2a2a2;
 }
 * {
   margin: 0;
@@ -106,4 +108,44 @@ h1 {
 }
 .footer a:hover {
   color: var(--color-black);
+}
+
+.chat-users {
+  height: 300px;
+  padding: 5px 10px;
+  margin-top: 15px;
+  overflow-y: scroll;
+  border: 1px solid var(--color-black);
+  border-radius: 5px;
+}
+.form-user {
+  border: 1px dotted var(--color-black);
+  border-radius: 2px;
+  padding: 10px;
+  margin-top: 20px;
+}
+.form__name-user {
+  font-size: 1rem;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+.form__text-user {
+  font-size: 1rem;
+  padding: 15px;
+  width: 90%;
+  height: 175px;
+}
+.form__button-user {
+  margin-top: 15px;
+  padding: 5px 10px;
+  font-size: 1rem;
+  color: var(--color-black);
+  border-radius: 5px;
+}
+.form__button-user:hover,
+.form__button-user:active {
+  cursor: pointer;
+  background-color: var(--color-blue);
+  color: var(--color-white);
+  box-shadow: 3px 3px 3px var(--color-gray);
 }
