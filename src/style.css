@@ -1,0 +1,109 @@
+:root {
+  --color-black: #0d0b4d;
+  --color-blue: #1a518d;
+  --color-marker: #000057;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+ul li {
+  text-decoration: none;
+  list-style: none;
+}
+body {
+  padding: 30px 10px;
+}
+.container {
+  width: 1200px;
+  margin: 0 auto;
+}
+h1 {
+  text-align: center;
+}
+.display-flex {
+  display: flex;
+}
+.gap-25 {
+  gap: 25px;
+}
+
+.logotype {
+  padding: 10px;
+}
+.logo-site {
+  width: 150px;
+  height: 100px;
+}
+
+.menu-contant {
+  padding: 5px;
+  margin-left: 50px;
+}
+.menu-site__li {
+  list-style-type: square;
+  list-style-position: inside;
+  color: var(--color-marker);
+  padding: 5px;
+}
+.menu-site__li a {
+  color: var(--color-black);
+  text-decoration: none;
+  font-size: 1.1rem;
+}
+.menu-site__li a:hover {
+  color: var(--color-blue);
+  cursor: pointer;
+}
+
+.paper {
+  width: 25%;
+}
+.center-content {
+  width: 55%;
+}
+.right-content {
+  width: 15%;
+}
+
+.content {
+  margin-top: 20px;
+  line-height: 1.5rem;
+}
+.content p {
+  padding: 0px 0px 10px;
+}
+.content h2,
+.content h3 {
+  padding: 0px 0px 10px;
+  line-height: 1.7rem;
+}
+.content a {
+  color: var(--color-blue);
+}
+.content a:hover {
+  color: var(--color-black);
+}
+
+.center-content h2 {
+  text-align: center;
+}
+.center-content li {
+  list-style-type: square;
+  list-style-position: inside;
+  padding: 5px;
+}
+
+.footer {
+  margin-top: 20px;
+  line-height: 1.7rem;
+}
+.footer div {
+  flex: auto;
+}
+.footer a {
+  color: var(--color-blue);
+}
+.footer a:hover {
+  color: var(--color-black);
+}
