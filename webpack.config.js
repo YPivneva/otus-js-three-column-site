@@ -1,4 +1,5 @@
 const path = require("path");
+const fs = require("fs");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 // eslint-disable-next-line
 const HtmlMinimizerPlugin = require("html-minimizer-webpack-plugin");
@@ -7,18 +8,40 @@ const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 // eslint-disable-next-line
 const TerserPlugin = require("terser-webpack-plugin");
 
+const srcPath = "./src";
+
+function getAllHtmlFiles(dir, filesList = []) {
+  const files = fs.readdirSync(dir);
+  files.forEach((file) => {
+    const filePath = path.join(dir, file);
+    if (fs.statSync(filePath).isDirectory()) {
+      // eslint-disable-next-line no-param-reassign
+      filesList = getAllHtmlFiles(filePath, filesList);
+    } else if (filePath.endsWith(".html")) {
+      filesList.push({
+        template: filePath,
+        filename: path.relative(srcPath, filePath),
+      });
+    }
+  });
+  return filesList;
+}
+
+const htmlFilesSettings = getAllHtmlFiles(srcPath).map(
+  (file) => new HtmlWebpackPlugin(file),
+);
+
 module.exports = {
   mode: "development",
   entry: "./src/index.js",
   output: {
     path: path.resolve(__dirname, "./dist"),
     filename: "[name].[hash:8].js",
-    clean: true,
   },
   module: {
     rules: [
       {
-        test: /\.s[ac]ss$/i,
+        test: /\.css$/i,
         use: ["style-loader", "css-loader"],
       },
       {
@@ -40,31 +63,9 @@ module.exports = {
     port: 3000,
     hot: true,
   },
-  optimization: {
-    minimize: true,
-    minimizer: [new HtmlMinimizerPlugin()],
-  },
   plugins: [
-    new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, "./src/index.html"),
-      filename: "index.html",
-    }),
-    new HtmlWebpackPlugin({
-      // Also generate a test.html
-      filename: "avtorization.html",
-      template: "src/paper/avtorization.html",
-    }),
-    new HtmlWebpackPlugin({
-      // Also generate a test.html
-      filename: "layout-and-stub.html",
-      template: "src/paper/layout-and-stub.html",
-    }),
-    new HtmlWebpackPlugin({
-      // Also generate a test.html
-      filename: "chat-content.html",
-      template: "src/chat/chat-content.html",
-    }),
-    new CssMinimizerPlugin(),
+    ...htmlFilesSettings,
+    // new CssMinimizerPlugin(),
     new TerserPlugin(),
   ],
 };
