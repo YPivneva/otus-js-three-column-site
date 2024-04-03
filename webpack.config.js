@@ -51,17 +51,17 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       // Also generate a test.html
-      filename: "avtorization.html",
+      filename: "paper/avtorization.html",
       template: "src/paper/avtorization.html",
     }),
     new HtmlWebpackPlugin({
       // Also generate a test.html
-      filename: "layout-and-stub.html",
+      filename: "paper/layout-and-stub.html",
       template: "src/paper/layout-and-stub.html",
     }),
     new HtmlWebpackPlugin({
       // Also generate a test.html
-      filename: "chat-content.html",
+      filename: "chat/chat-content.html",
       template: "src/chat/chat-content.html",
     }),
     new CssMinimizerPlugin(),
