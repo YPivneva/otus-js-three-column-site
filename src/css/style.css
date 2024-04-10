@@ -149,3 +149,27 @@ h1 {
   color: var(--color-white);
   box-shadow: 3px 3px 3px var(--color-gray);
 }
+
+@media (max-width: 500px) {
+  .container {
+    width: 100%;
+  }
+  .logo-site {
+    width: 100px;
+    height: 100px;
+  }
+  .menu-contant {
+    margin-left: 5px;
+  }
+  .content {
+    flex-direction: column;
+  }
+  .right-content,
+  .center-content,
+  .paper {
+    width: 100%;
+  }
+  .footer {
+    flex-wrap: wrap;
+  }
+}

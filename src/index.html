@@ -4,7 +4,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Чаты</title>
-    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/carousel.css" />
   </head>
   <body>
     <header>
@@ -50,6 +51,31 @@
         </p>
       </article>
       <section class="center-content">
+        <article id="carousel" class="carousel">
+          <div id="carousel__button" class="carousel__button"></div>
+          <button id="carousel__left" class="early">&#60;</button>
+          <button id="carousel__right" class="next">&#62;</button>
+          <div class="mask">
+            <div id="carousel__sliders" class="carousel-sliders">
+              <div class="slider-part">
+                <img src="./img/slide_1.jpg" alt="изображение первого слайда" />
+                <p>Текст слайда</p>
+              </div>
+              <div class="slider-part">
+                <img src="./img/slide_2.jpg" alt="изображение первого слайда" />
+                <p>Текст слайда</p>
+              </div>
+              <div class="slider-part">
+                <img src="./img/slide_3.jpg" alt="изображение первого слайда" />
+                <p>Текст слайда</p>
+              </div>
+              <div class="slider-part">
+                <img src="./img/slide_4.jpg" alt="изображение первого слайда" />
+                <p>Текст слайда</p>
+              </div>
+            </div>
+          </div>
+        </article>
         <h3>
           <a href="./chat/chat-content.html"
             >Sublime merge не видит gitignore файл в проекте Unreal engine 4.
@@ -140,6 +166,6 @@
         </ul>
       </div>
     </footer>
-    <script src="./script.js"></script>
+    <script src="./js/script.js"></script>
   </body>
 </html>
