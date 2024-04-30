@@ -1,7 +1,55 @@
+const dataIdBlock = "carousel";
+const dataArrImg = [
+  { name: "Название изображения 1", path: "./img/slide_1.jpg" },
+  { name: "Название изображения 2", path: "./img/slide_2.jpg" },
+  { name: "Название изображения 3", path: "./img/slide_3.jpg" },
+  { name: "Название изображения 4", path: "./img/slide_4.jpg" },
+];
+
+function CreatCarousel(idBlock, arrImg) {
+  this.idBlock = idBlock;
+  this.arrImg = arrImg;
+  this.startCreat = () => {
+    const rootBlock = document.querySelector(`#${idBlock}`);
+    rootBlock.classList.add("carousel");
+    rootBlock.insertAdjacentHTML(
+      "afterbegin",
+      '<div id="carousel__button" class="carousel__button"></div>',
+    );
+    rootBlock.insertAdjacentHTML(
+      "beforeend",
+      '<button id="carousel__left" class="early">&#60;</button>',
+    );
+    rootBlock.insertAdjacentHTML(
+      "beforeend",
+      '<button id="carousel__right" class="next">&#62;</button>',
+    );
+    rootBlock.insertAdjacentHTML(
+      "beforeend",
+      '<div class="mask"><div id="carousel__sliders" class="carousel-sliders"></div></div>',
+    );
+    dataArrImg.forEach((item) => {
+      document.querySelector("#carousel__sliders").innerHTML += `
+              <div>
+                <img src="${item.path}" alt="изображение первого слайда" />
+                <p>${item.name}</p>
+              </div>`;
+    });
+  };
+}
+
+new CreatCarousel(dataIdBlock, dataArrImg).startCreat();
+
 function show() {
   const parthSlide = document
     .querySelector("#carousel__sliders")
     .getElementsByTagName("div");
+  document
+    .querySelector("#carousel__sliders")
+    .querySelectorAll("div")
+    .forEach((element) => {
+      element.classList.add("slider-part");
+    });
   const buttonSlide = document
     .querySelector("#carousel__button")
     .getElementsByTagName("p");
@@ -46,7 +94,7 @@ function show() {
     if (elem === numbersLength) {
       elem = 0;
     }
-  }, 5000);
+  }, 4000);
   document.querySelector("#carousel").timer = time;
 }
 
