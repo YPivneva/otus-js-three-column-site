@@ -26,19 +26,16 @@ module.exports = {
         use: "html-loader",
       },
       {
-        test: /\.(png|jpg|gif|svg)$/,
-        type: "asset/resource",
-        generator: {
-          filename: "images/[name]-[hash][ext]",
-        },
+        test: /\.(png|jpe?g|gif|svg)$/i,
+        use: [
+          {
+            loader: "file-loader?name=/images/[name].[ext]",
+          },
+        ],
       },
     ],
   },
   devServer: {
-    compress: false,
-    open: true,
-    port: 3000,
-    hot: true,
     static: "./dist",
   },
   optimization: {
