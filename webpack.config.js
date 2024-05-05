@@ -27,7 +27,10 @@ module.exports = {
       },
       {
         test: /\.(png|jpg|gif|svg)$/,
-        type: "asset/resource",
+        type: "src/img/resource",
+        generator: {
+          filename: "images/[name]-[hash][ext]",
+        },
       },
     ],
   },
@@ -36,6 +39,7 @@ module.exports = {
     open: true,
     port: 3000,
     hot: true,
+    static: "./dist",
   },
   optimization: {
     minimize: true,
