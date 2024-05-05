@@ -28,7 +28,7 @@ function CreatCarousel(idBlock, arrImg) {
       "beforeend",
       '<div class="mask"><div id="carousel__sliders" class="carousel-sliders"></div></div>',
     );
-    dataArrImg.forEach((item) => {
+    arrImg.forEach((item) => {
       document.querySelector("#carousel__sliders").innerHTML += `
               <div>
                 <img src="${item.path}" alt="изображение первого слайда" />
@@ -233,3 +233,55 @@ function increase() {
 }
 
 increase();
+
+document.querySelector(".file-add").addEventListener("click", () => {
+  document.querySelector(".file-add").onchange = (e) => {
+    const file = e.target.files[0];
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+
+    reader.onload = (readerEvent) => {
+      dataArrImg.push({
+        name: `${file.name}`,
+        path: `${readerEvent.target.result}`,
+      });
+
+      document.querySelector("#carousel__sliders").innerHTML += `
+              <div>
+                <img src="${readerEvent.target.result}" alt="изображение первого слайда" />
+                <p>${file.name}</p>
+              </div>`;
+
+      const len = dataArrImg.length - 1;
+      document.querySelector("#carousel__button").innerHTML +=
+        `<p id="${len}" class="carousel__point-button"></p>`;
+
+      show();
+    };
+  };
+});
+
+document.querySelector(".remove-image").addEventListener("click", () => {
+  const list = document
+    .querySelector("#carousel__sliders")
+    .getElementsByTagName("div");
+  const listLength = list.length;
+
+  if (listLength < 0) {
+    // eslint-disable-next-line no-alert
+    alert("Нет элементов, которые можно было бы удалить");
+  } else {
+    const elem = parseInt(
+      document.querySelector("#carousel").getAttribute("elem"),
+      10,
+    );
+    delete dataArrImg[elem];
+    list[elem].remove();
+    document
+      .querySelector("#carousel__button")
+      .getElementsByTagName("p")
+      [elem].remove();
+    document.querySelector("#carousel").setAttribute("elem", elem + 1);
+    show();
+  }
+});
