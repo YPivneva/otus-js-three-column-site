@@ -29,7 +29,7 @@ module.exports = {
         test: /\.(png|jpe?g|gif|svg)$/i,
         use: [
           {
-            loader: "file-loader?name=/images/[name].[ext]",
+            loader: "file-loader?name=/img/[name].[ext]",
           },
         ],
       },
