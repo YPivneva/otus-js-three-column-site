@@ -41,7 +41,12 @@ module.exports = {
   },
   optimization: {
     minimize: true,
-    minimizer: [new HtmlMinimizerPlugin(), new CssMinimizerPlugin()],
+    minimizer: [
+      new HtmlMinimizerPlugin(),
+      new CssMinimizerPlugin({
+        include: "./src/**/*.css",
+      }),
+    ],
   },
   plugins: [
     new HtmlWebpackPlugin({
