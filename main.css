@@ -1,0 +1,257 @@
+/*!*********************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/css/style.css ***!
+  \*********************************************************************/
+:root {
+  --color-black: #0d0b4d;
+  --color-blue: #1a518d;
+  --color-marker: #000057;
+  --color-white: #e6dddd;
+  --color-gray: #a2a2a2;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+ul li {
+  text-decoration: none;
+  list-style: none;
+}
+body {
+  padding: 30px 10px;
+}
+.container {
+  width: 1200px;
+  margin: 0 auto;
+}
+h1 {
+  text-align: center;
+}
+.display-flex {
+  display: flex;
+}
+.gap-25 {
+  gap: 25px;
+}
+
+.logotype {
+  padding: 10px;
+}
+.logo-site {
+  width: 150px;
+  height: 100px;
+}
+
+.menu-contant {
+  padding: 5px;
+  margin-left: 50px;
+}
+.menu-site__li {
+  list-style-type: square;
+  list-style-position: inside;
+  color: var(--color-marker);
+  padding: 5px;
+}
+.menu-site__li a {
+  color: var(--color-black);
+  text-decoration: none;
+  font-size: 1.1rem;
+}
+.menu-site__li a:hover {
+  color: var(--color-blue);
+  cursor: pointer;
+}
+
+.paper {
+  width: 25%;
+}
+.center-content {
+  width: 55%;
+}
+.right-content {
+  width: 15%;
+}
+
+.content {
+  margin-top: 20px;
+  line-height: 1.5rem;
+}
+.content p {
+  padding: 0px 0px 10px;
+}
+.content h2,
+.content h3 {
+  padding: 0px 0px 10px;
+  line-height: 1.7rem;
+}
+.content a {
+  color: var(--color-blue);
+}
+.content a:hover {
+  color: var(--color-black);
+}
+
+.center-content h2 {
+  text-align: center;
+}
+.center-content li {
+  list-style-type: square;
+  list-style-position: inside;
+  padding: 5px;
+}
+
+.footer {
+  margin-top: 20px;
+  line-height: 1.7rem;
+}
+.footer div {
+  flex: auto;
+}
+.footer a {
+  color: var(--color-blue);
+}
+.footer a:hover {
+  color: var(--color-black);
+}
+
+.chat-users {
+  height: 300px;
+  padding: 5px 10px;
+  margin-top: 15px;
+  overflow-y: scroll;
+  border: 1px solid var(--color-black);
+  border-radius: 5px;
+}
+.form-user {
+  border: 1px dotted var(--color-black);
+  border-radius: 2px;
+  padding: 10px;
+  margin-top: 20px;
+}
+.form__name-user {
+  font-size: 1rem;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+.form__text-user {
+  font-size: 1rem;
+  padding: 15px;
+  width: 90%;
+  height: 175px;
+}
+.form__button-user {
+  margin-top: 15px;
+  padding: 5px 10px;
+  font-size: 1rem;
+  color: var(--color-black);
+  border-radius: 5px;
+}
+.form__button-user:hover,
+.form__button-user:active {
+  cursor: pointer;
+  background-color: var(--color-blue);
+  color: var(--color-white);
+  box-shadow: 3px 3px 3px var(--color-gray);
+}
+
+@media (max-width: 500px) {
+  .container {
+    width: 100%;
+  }
+  .logo-site {
+    width: 100px;
+    height: 100px;
+  }
+  .menu-contant {
+    margin-left: 5px;
+  }
+  .content {
+    flex-direction: column;
+  }
+  .right-content,
+  .center-content,
+  .paper {
+    width: 100%;
+  }
+  .footer {
+    flex-wrap: wrap;
+  }
+}
+
+/*!************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/css/carousel.css ***!
+  \************************************************************************/
+.carousel {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 5% 90% 5%;
+}
+.carousel__button {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  order: 2;
+  grid-column: 1/4;
+  padding: 5px;
+}
+.carousel__point-button {
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  box-shadow:
+    0 0 5px #111 inset,
+    0 0 6px #666 inset;
+  margin: 3px;
+  float: left;
+}
+.carousel__point-button:hover {
+  cursor: pointer;
+  box-shadow:
+    0 0 3px #111 inset,
+    0 0 6px #ec7f18 inset;
+}
+.carousel__point-button.active {
+  box-shadow:
+    0 0 3px #111 inset,
+    0 0 6px #2a0df2 inset;
+}
+.next {
+  order: 1;
+}
+.mask {
+  /* position: relative;
+    overflow: hidden; */
+  height: 350px;
+  overflow: visible;
+  position: relative;
+}
+.carousel-sliders {
+  overflow: hidden;
+  height: 350px;
+  position: relative;
+}
+.slider-part {
+  width: 600px;
+  height: 350px;
+  position: absolute;
+  left: 600px;
+  list-style: none;
+  transition: left 3s linear;
+  -webkit-transition: left 3s 0s linear;
+  -moz-transition: left 3s 0s linear;
+}
+.slider-part:first-child {
+  left: 0px;
+  opacity: 1;
+}
+.slider-part p {
+  text-align: center;
+}
+.slider-part img {
+  width: 100%;
+  margin: 0 auto;
+}
+.add-carousel {
+  text-decoration: none;
+  color: #111;
+}
+
