@@ -1,6 +1,6 @@
 const dataIdBlock = "carousel";
 const dataArrImg = [
-  { name: "Название изображения 1", path: "./img/slide_1.jpg" },
+  { name: "Название изображения 1", path: "./img/slide_1.png" },
   { name: "Название изображения 2", path: "./img/slide_2.jpg" },
   { name: "Название изображения 3", path: "./img/slide_3.jpg" },
   { name: "Название изображения 4", path: "./img/slide_4.jpg" },

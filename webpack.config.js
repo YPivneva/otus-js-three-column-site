@@ -2,6 +2,7 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 // eslint-disable-next-line
 const HtmlMinimizerPlugin = require("html-minimizer-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 // eslint-disable-next-line
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 // eslint-disable-next-line
@@ -18,8 +19,8 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.s[ac]ss$/i,
-        use: ["style-loader", "css-loader"],
+        test: /.s?css$/,
+        use: [MiniCssExtractPlugin.loader, "css-loader"],
       },
       {
         test: /\.html$/,
@@ -40,7 +41,7 @@ module.exports = {
   },
   optimization: {
     minimize: true,
-    minimizer: [new HtmlMinimizerPlugin()],
+    minimizer: [new HtmlMinimizerPlugin(), new CssMinimizerPlugin()],
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -62,7 +63,7 @@ module.exports = {
       filename: "chat/chat-content.html",
       template: "src/chat/chat-content.html",
     }),
-    new CssMinimizerPlugin(),
     new TerserPlugin(),
+    new MiniCssExtractPlugin(),
   ],
 };
